@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Unidad 8</title>
+</head>
+<body>
+
+<div>
+<H1 style="margin-left: 35px;" >Ingreso al sistema </H1>
+<p>Usuario: <input type="text" id="email" name="email"></p>
+<p>Clave: <input  style="margin-left: 13px;"  type="password" id="clave" name="clave"></p>
+
+<input type="button" value="Ingresar" style="margin-left: 60px;" onclick="validarFormulario()"></input>
+</div>
+
+<script>
+
+function validarFormulario() {
+
+let todoCorrecto = true;
+
+let usuario = document.querySelector("#email").value;
+
+let clave = document.querySelector("#clave").value;
+
+const regex = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+
+if (usuario===""){
+    alert("Por favor rellenar campo Usuario");
+    todoCorrecto=false;
+
+    return todoCorrecto;
+}
+
+if (clave===""){
+    alert("Por favor rellenar campo Clave");
+    todoCorrecto=false;
+
+    return todoCorrecto;
+}
+
+if (!usuario.match(regex)){
+
+    alert("El Usuario no es un email válido");
+
+    todoCorrecto=false;
+
+    return todoCorrecto;
+}
+
+return todoCorrecto;
+
+}
+
+</script>
+
+</body>
+</html>
